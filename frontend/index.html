@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SKYBOARD — City Weather Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="app">
+    <div class="grain"></div>
+    <div class="bg-photo" id="bgPhoto"></div>
+    <div class="bg-overlay"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">✈</span>
+        <span class="brand-name">SKYBOARD</span>
+      </div>
+      <p class="brand-tag">live conditions, anywhere on the map</p>
+    </header>
+
+    <form class="search-row" id="searchForm" autocomplete="off">
+      <span class="search-label">DEPARTURE&nbsp;CITY</span>
+      <input type="text" id="city" placeholder="Type a city… e.g. Lucknow" />
+      <button type="submit" id="submit">SEARCH</button>
+    </form>
+
+    <p class="status-line" id="statusLine" aria-live="polite"></p>
+
+    <main class="board" id="board">
+
+      <section class="hero-row">
+        <div class="hero-left">
+          <div class="hero-code" id="heroRegion">—</div>
+          <h1 class="hero-city" id="cityName">—</h1>
+          <p class="hero-place" id="placeDesc">Search a city to begin</p>
+        </div>
+        <div class="hero-right">
+          <img id="weatherIcon" class="weather-icon" alt="" />
+          <div class="hero-temp-wrap">
+            <span class="hero-temp" id="temp">--</span>
+            <span class="hero-unit">°C</span>
+          </div>
+          <p class="hero-condition" id="condition">—</p>
+          <p class="hero-minmax"><span id="temp_min">--</span>° / <span id="temp_max">--</span>°</p>
+        </div>
+      </section>
+
+      <section class="rain-strip" id="rainStrip" data-state="unknown">
+        <span class="rain-icon" id="rainIcon" aria-hidden="true">☂</span>
+        <div class="rain-text">
+          <span class="rain-verdict" id="rainVerdict">CHECKING TODAY'S RAIN…</span>
+          <span class="rain-detail" id="rainDetail"></span>
+        </div>
+        <span class="rain-chance" id="rainChance">--%</span>
+      </section>
+
+      <section class="split-table" aria-label="Weather details">
+        <div class="row" data-row>
+          <span class="row-label">HUMIDITY</span>
+          <span class="row-value"><span id="humidity">--</span> %</span>
+        </div>
+        <div class="row" data-row>
+          <span class="row-label">CLOUD COVER</span>
+          <span class="row-value"><span id="cloud_pct">--</span> %</span>
+        </div>
+        <div class="row" data-row>
+          <span class="row-label">PRESSURE</span>
+          <span class="row-value"><span id="pressure">--</span> hPa</span>
+        </div>
+        <div class="row" data-row>
+          <span class="row-label">SEA LEVEL</span>
+          <span class="row-value"><span id="sea_level">N/A</span></span>
+        </div>
+        <div class="row" data-row>
+          <span class="row-label">GROUND LEVEL</span>
+          <span class="row-value"><span id="grnd_level">N/A</span></span>
+        </div>
+        <div class="row" data-row>
+          <span class="row-label">WIND SPEED</span>
+          <span class="row-value"><span id="wind_speed">--</span> km/h</span>
+        </div>
+        <div class="row" data-row>
+          <span class="row-label">WIND DIRECTION</span>
+          <span class="row-value"><span id="wind_deg">--</span>°<span id="wind_compass"></span></span>
+        </div>
+        <div class="row" data-row>
+          <span class="row-label">WIND GUST</span>
+          <span class="row-value"><span id="wind_gust">N/A</span></span>
+        </div>
+      </section>
+
+      <p class="photo-credit" id="photoCredit"></p>
+
+    </main>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
